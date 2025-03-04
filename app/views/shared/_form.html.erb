@@ -1,0 +1,14 @@
+<div class="container w-50">
+
+  <%= simple_form @beer do |f| %>
+    <% f.input :name %>
+    <% f.input :degree %>
+    <% f.input :centiliter %>
+    <% f.input :conditionnement %>
+    <% f.input :beer_type %>
+    <% f.input :unit_price %>
+    <% f.button :submit, class: btn btn-primary"" %>
+  <% end %>
+
+  <%= link_to "Back to home" beers_path, class: "btn btn-outline-primary" %>
+</div>
