@@ -3,6 +3,20 @@ class BeersController < ApplicationController
     @beers = Beer.all
   end
 
+
+  def new
+    @beer = Beer.new
+  end
+
+  def create
+    @beer = Beer.new(beer_params)
+    @beer.user_id = current_user.id
+    if @beer.save
+      redirect_to beer_path(@beer)
+    else
+      render :new, status: :unprocessable_entity
+    end
+    
   def edit
     @beer = Beer.find(params[:id])
   end
@@ -11,6 +25,7 @@ class BeersController < ApplicationController
     @beer = Beer.find(params[:id])
     @beer.update(beer_params)
     redirect_to beer_path(@beer)
+
   end
 
   private
