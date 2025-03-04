@@ -4,5 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :beers
   validates :first_name, :last_name, :role, :birth_date, presence: true
 end
