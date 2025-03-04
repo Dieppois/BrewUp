@@ -1,10 +1,10 @@
-<%= simple_form @beer do |f| %>
-  <% f.input :name %>
-  <% f.input :degree %>
-  <% f.input :centiliter %>
-  <% f.input :conditionnement %>
-  <% f.input :beer_type %>
-  <% f.input :unit_price %>
-  <% f.input :description %>
-  <% f.button :submit, class: btn btn-primary"" %>
+<%= simple_form_for @beer do |f| %>
+  <%= f.input :name %>
+  <%= f.input :degree %>
+  <%= f.input :centiliter %>
+  <%= f.select :conditionnement, Beer::CONDITIONNEMENTS %>
+  <%= f.select :beer_type, Beer::BEER_TYPES %>
+  <%= f.input :unit_price %>
+  <%= f.input :description %>
+  <%= f.button :submit, class: "btn btn-primary w-100" %>
 <% end %>
