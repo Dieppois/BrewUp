@@ -1,5 +1,5 @@
 class BeersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @beers = Beer.all
@@ -7,6 +7,8 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.find(params[:id])
+  end
+
   def new
     @beer = Beer.new
   end
