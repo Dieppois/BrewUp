@@ -26,8 +26,12 @@
   </div>
 
   <div class="input">
+    <%= f.input :photo, as: :file, input_html: { class: "form-control-lg" } %>
+  </div>
+
+  <div class="input">
     <%= f.input :description, as: :text, input_html: { class: "form-control-lg" } %>
   </div>
 
-  <%= f.button :submit, class: "btn btn-primary w-100" %>
+  <%= f.button :submit, class: "w-100 btn btn-primary btn-lg" %>
 <% end %>

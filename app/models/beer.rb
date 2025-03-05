@@ -3,6 +3,8 @@ class Beer < ApplicationRecord
   CONDITIONNEMENTS = %w[Bouteille Canette Fût].freeze
   CENTILITER = [ 25, 33, 50, 75 ].freeze
 
+  has_one_attached :photo
+
   belongs_to :user
 
   validates :name, :degree, :centiliter, :unit_price, :conditionnement, :beer_type, presence: true
