@@ -36,3 +36,4 @@ created_users.each do |user|
 end
 
 puts "5 utilisateurs et 50 bières ont été créés avec succès !"
+

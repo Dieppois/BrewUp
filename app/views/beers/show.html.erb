@@ -1,0 +1,33 @@
+
+<div class="container-fluid vh-100 d-flex justify-content-center align-items-center bg-white">
+  <div class="h-75 w-75 d-flex flex-row bg-white">
+    <!-- Image à gauche -->
+    <div class="col-md-6">
+      <img src="https://hophey.ua/upload/resize_cache/iblock/110/800_800_1/1106f11a3658ed6446616365420a58a7.png"
+           class="img-fluid h-100 rounded-start"
+           alt="Paix Dieu">
+    </div>
+
+    <!-- Texte à droite -->
+    <div class="col-md-6 flex-column d-flex flex-column justify-content-between text-start p-4">
+      <div class="card-body">
+        <h1 class="card-title"><strong><%= @beer.name %></strong></h1>
+        <p class="card-text text-muted fs-3">Unit Price : <%= @beer.unit_price %>€</p>
+        <h4 class="card-text">Type de bière : <%= @beer.beer_type %></h4>
+        <h5 class="card-text">Conditionnement : <%= @beer.conditionnement %></h5>
+        <h5 class="card-text"><%= @beer.centiliter %> cl</h5>
+        <p class="card-text"><strong>Description</strong> : <%= @beer.description %></p>
+
+        <!-- Compteur de quantité -->
+        <div class="d-flex align-items-center my-3" data-controller="quantity" data-name="<%= @beer.name %>">
+          <button class="btn btn-white btn-lg text-dark custom-btn" type="button" data-action="click->quantity#decrement">-</button>
+          <input class="form-control text-center bg-white" style="width: 100px;" data-quantity-target="quantity" value="1" min="1">
+          <button class="btn btn-white btn-lg text-dark custom-btn" type="button" data-action="click->quantity#increment">+</button>
+        </div>
+
+        <!-- Bouton Ajouter au panier -->
+        <button class="btn btn-danger btn-lg text-white custom-btn" onclick="addToCart()">Ajouter au panier</button>
+      </div>
+    </div>
+  </div>
+</div>
