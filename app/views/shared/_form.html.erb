@@ -1,10 +1,33 @@
 <%= simple_form_for @beer do |f| %>
-  <%= f.input :name %>
-  <%= f.input :degree %>
-  <%= f.input :centiliter %>
-  <%= f.select :conditionnement, Beer::CONDITIONNEMENTS %>
-  <%= f.select :beer_type, Beer::BEER_TYPES %>
-  <%= f.input :unit_price %>
-  <%= f.input :description %>
+  <div class="input">
+    <%= f.input :name, input_html: { class: "form-control-lg" } %>
+  </div>
+
+  <div class="input">
+    <%= f.input :degree, collection: 4..20, input_html: { class: "form-control-lg" } %>
+  </div>
+
+  <div class="input d-flex gap-3 w-100">
+    <div class="flex-grow-1">
+      <%= f.input :centiliter, as: :select, collection: Beer::CENTILITER, input_html: { class: "form-control-lg" } %>
+    </div>
+
+    <div class="flex-grow-1">
+      <%= f.input :conditionnement, as: :select, collection: Beer::CONDITIONNEMENTS, input_html: { class: "form-control-lg" } %>
+    </div>
+
+    <div class="flex-grow-1">
+      <%= f.input :beer_type, as: :select, collection: Beer::BEER_TYPES, input_html: { class: "form-control-lg" } %>
+    </div>
+  </div>
+
+  <div class="input">
+    <%= f.input :unit_price, input_html: { class: "form-control-lg" } %>
+  </div>
+
+  <div class="input">
+    <%= f.input :description, as: :text, input_html: { class: "form-control-lg" } %>
+  </div>
+
   <%= f.button :submit, class: "btn btn-primary w-100" %>
 <% end %>

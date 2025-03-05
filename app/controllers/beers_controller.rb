@@ -30,7 +30,12 @@ class BeersController < ApplicationController
   def update
     @beer = Beer.find(params[:id])
     @beer.update(beer_params)
-    redirect_to beer_path(@beer)
+
+    if @beer.save
+      redirect_to beer_path(@beer)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
