@@ -6,7 +6,6 @@ require 'faker'
 users = []
 5.times do
   users << {
-    role: User::ROLES.sample,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     birth_date: Faker::Date.birthday(min_age: 18, max_age: 65),
@@ -36,4 +35,3 @@ created_users.each do |user|
 end
 
 puts "5 utilisateurs et 50 bières ont été créés avec succès !"
-
