@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "beers#index"
 
-  resources :orders, only: %i[new create]
   resources :users, only: %i[show edit update destroy]
   resources :beers
+  resources :orders, only: %i[show index create]
 
 end
