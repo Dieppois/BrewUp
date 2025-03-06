@@ -5,6 +5,7 @@ ruby "3.3.5"
 # Added gem
 gem "devise"
 gem "faker"
+gem "pg_search"
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
