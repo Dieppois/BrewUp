@@ -16,15 +16,14 @@
         <h5 class="card-text"><%= @beer.centiliter %> cl</h5>
         <p class="card-text"><strong>Description</strong> : <%= @beer.description %></p>
 
-        <!-- Compteur de quantité -->
-        <div class="d-flex align-items-center my-3" data-controller="quantity" data-name="<%= @beer.name %>">
-          <button class="btn btn-white btn-lg text-dark custom-btn" type="button" data-action="click->quantity#decrement">-</button>
-          <input class="form-control text-center bg-white" style="width: 100px;" data-quantity-target="quantity" value="1" min="1">
-          <button class="btn btn-white btn-lg text-dark custom-btn" type="button" data-action="click->quantity#increment">+</button>
-        </div>
+
+        <%= simple_form_for @order do |f| %>
+        <%= f.input :quantity %>
+        <%= f.button :submit, class: "btn btn-white btn-lg text-dark custom-btn" %>
+        <% end %>
 
         <!-- Bouton Ajouter au panier -->
-        <button class="btn btn-danger btn-lg text-white custom-btn" onclick="addToCart()">Ajouter au panier</button>
+        <%# <%= link_to "ajoutez au panier", new_beer_order_path(@beer),  class:"btn btn-danger btn-lg text-white custom-btn" %>
       </div>
     </div>
   </div>
