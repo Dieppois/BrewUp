@@ -19,8 +19,9 @@
 
 
         <%= simple_form_for @order do |f| %>
-        <%= f.input :quantity %>
-        <%= f.button :submit, class: "btn btn-white btn-lg text-dark custom-btn" %>
+          <%= f.input :quantity %>
+          <%= f.hidden_field :beer_id, value: @beer.id %>
+          <%= f.button :submit, class:"btn btn-danger btn-lg text-white custom-btn" %>
         <% end %>
 
         <!-- Bouton Ajouter au panier -->
