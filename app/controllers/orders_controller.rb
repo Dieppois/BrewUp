@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
-  before_action :set_beer, only: %i[create]
+
+  def index
+    Order.all
+  end
 
   def show
     @order = Order.find(params[:id])
@@ -7,20 +10,15 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.beer = @beer
     @order.user = current_user
     if @order.save
-      redirect_to beer_order_path(@beer, @order)
+      redirect_to order_path(@order)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   private
-
-  def set_beer
-    @beer = Beer.find(params[:beer_id])
-  end
 
   def order_params
     params.require(:order).permit(:quantity, :beer_id)

@@ -1,1 +1,18 @@
-<p>coucou</p>
+<div class="card-product">
+  <% if @order.beer.photo.attached? %>
+    <%= image_tag @order.beer.image, alt: @order.beer.name, class: "beer-image" %>
+  <% else %>
+    <p>Aucune image disponible</p>
+  <% end %>
+  <div class="card-product-infos">
+    <p><strong>Nom:</strong> <%= @order.beer.name %></p>
+    <p><strong>Type de bière:</strong> <%= @order.beer.beer_type %></p>
+    <p><strong>Conditionnement:</strong> <%= @order.beer.conditionnement %></p>
+    <p><strong>CL:</strong> <%= @order.beer.centiliter %></p>
+    <p><strong>Description:</strong> <%= @order.beer.description %></p>
+  </div>
+</div>
+  <div></div>
+  <h3>Total de la commande</h3>
+<p><strong>Montant total:</strong> <%= number_to_currency(@order.beer.unit_price * @order.quantity) %></p>
+<%= link_to 'Retour aux bières', beers_path %>
