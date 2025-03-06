@@ -1,40 +1,36 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
-  <div class="container-fluid d-flex">
+<header class="p-3 mb-3 border-bottom bg-white">
     <div class="container">
-      <a class="navbar-brand" href="/">
-      <%= image_tag "beer&beers.png", alt:"Logo", width:"72", height:"42", class:"d-inline-block align-text-top" %>
-      </a>
-    </div>
-    <div class="container">
-      <strong class="fs-3">Beer&Beer</strong>
-    </div>
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+          <%= image_tag "beer&beers.png", alt:"Logo", width:"72", height:"42", class:"d-inline-block align-text-top" %>
+        </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/" class="nav-link px-2 link-body-emphasis fs-4"><strong>Beer&Beer</strong></a></li>
+<%#           <li><a href="#" class="nav-link px-2 link-body-emphasis">Inventory</a></li>
+          <li><a href="#" class="nav-link px-2 link-body-emphasis">Customers</a></li> %>
+        </ul>
 
         <% if user_signed_in? %>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "user_renaud.png", class: "avatar", alt: "dropdown menu" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profil", "#", class: "dropdown-item" %>
-              <%= link_to "Order", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-
+          <button type="button" class="btn btn-danger me-3 rounded-5">
+            <a href="#" class="nav-link px-2 text-white">+ Add 🍺</a>
+          </button>
+          <div class="dropdown-end text-end">
+            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="mdo" width="32" height="32" class="rounded-circle object-fit-cover">
+            </a>
+            <ul class="dropdown-menu text-small mt-2">
+              <li><%= link_to "Profile", user_path(current_user), class: "nav-link" %></li>
+              <li><%= link_to "Orders", orders_path, class: "nav-link" %></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></li>
+            </ul>
+          </div>
+        </div>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
+          <button type="button" class="btn btn-danger me-3 rounded-5">
+            <%= link_to "login", new_user_session_path, class: "nav-link" %>
+          </button>
         <% end %>
-      </ul>
     </div>
-  </div>
-</div>
+  </header>
