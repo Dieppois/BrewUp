@@ -7,16 +7,19 @@ export default class extends Controller {
 
   increment() {
     this.quantityTarget.value = Number(this.quantityTarget.value) + 1;
+    this.updateHiddenQuantity();
   }
 
   decrement() {
     if (this.quantityTarget.value > 1) {
       this.quantityTarget.value = Number(this.quantityTarget.value) - 1;
+      this.updateHiddenQuantity();
     }
   }
 
-/*   addToCart() {
-    const quantity = this.quantityTarget.value;
-    alert(`Ajouté au panier : ${quantity} x ${this.element.dataset.name}`);
-  } */
-}
+  // addToCart() {
+  //   const quantity = this.quantityTarget.value;
+  //   alert(`Ajouté au panier : ${quantity} x ${this.element.dataset.name}`);
+  // }
+  }
+

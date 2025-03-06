@@ -6,6 +6,7 @@ class Beer < ApplicationRecord
   has_one_attached :photo
 
   belongs_to :user
+  has_many :orders 
 
   validates :name, :degree, :centiliter, :unit_price, :conditionnement, :beer_type, presence: true
   validates :beer_type, inclusion: { in: BEER_TYPES }
