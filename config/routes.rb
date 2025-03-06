@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   root "beers#index"
 
   resources :orders, only: %i[new create]
-
+  resources :users, only: %i[show edit update destroy]
   resources :beers
 
 end

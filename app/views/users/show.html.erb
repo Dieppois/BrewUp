@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container my-5">
 
   <div class="d-flex gap-3">
 
@@ -16,22 +16,26 @@
     </div>
 
     <div class="d-flex flex-column flex-grow-1 gap-5 p-5 bg-white rounded-5">
-      <h1>My show room</h1>
+      <h1 class="fw-medium fs-3 w-100 border-bottom pb-4 text-uppercase">My show room</h1>
 
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <% @beers.each do |beer| %>
+      <div class="row row-cols-1 row-cols-md-3">
+        <% @user.beers.each do |beer| %>
         <div class="col">
-          <div class="card h-100">
-            <%= cl_image_tag beer.photo.key, width: 400, height: 400, class: " bg-white p-5 card-img-top object-fit-contain"%>
-            <div class="card-body bg-white">
-              <h5 class="card-title"> <%= beer.name %> </h5>
-              <p class="card-title"> <em><%= beer.centiliter %>cl</em></p>
-                <div class="d-flex justify-content-between align-items-center">
-                <p class="card-title mb-0"><b><%= beer.unit_price %> €</b></p>
-                <%= link_to "See more", beer_path(beer), class: "btn btn-outline-primary" %>
-                </div>
+
+          <div class="card p-2 bg-white rounded-4">
+            <p class="card-title text-secondary fs-4 color-secondary p-3 position-absolute top-0"><%= beer.centiliter %>cl</p>
+            <%= cl_image_tag beer.photo.key, width: 300, class: "img-fluid w-100 bg-white card-img-top object-fit-cover"%>
+            <div class="card-body bg-white d-flex flex-column gap-3">
+              <p class="card-title fs-3 mb-0"><%= beer.unit_price %> €</p>
+              <h5 class="card-title fs-5 mb-0 fw-medium text-uppercase"><%= beer.name %></h5>
+              <div class="d-flex flex-row gap-3">
+                <%= link_to "Update", beer_path(beer), class: "btn btn-outline-primary w-100 mt-3 p-3 px-5 rounded-3" %>
+                <%= link_to "Delete", beer_path(beer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger w-100 mt-3 p-3 px-5 rounded-3" %>
+              </div>
             </div>
           </div>
+
+
         </div>
         <% end %>
       </div>

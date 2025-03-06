@@ -39,6 +39,12 @@ class BeersController < ApplicationController
     end
   end
 
+  def destroy
+    @beer = Beer.find(params[:id])
+    @beer.destroy
+    redirect_to beer_path(@user.beers), status: :see_other
+  end
+
   private
 
   def beer_params
