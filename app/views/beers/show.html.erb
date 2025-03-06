@@ -17,7 +17,7 @@
         <p class="card-text"><strong>Description</strong> : <%= @beer.description %></p>
 
 
-        <%= simple_form_for @beer do |f| %>
+        <%= simple_form_for @order do |f| %>
         <%= f.input :quantity %>
         <%= f.button :submit, class: "btn btn-white btn-lg text-dark custom-btn" %>
         <% end %>
