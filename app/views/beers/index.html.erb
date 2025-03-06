@@ -5,13 +5,13 @@
     <% @beers.each do |beer| %>
     <div class="col">
       <div class="card h-100">
-        <img src="https://petitecave.ch/4931-large_default/heineken-original-24x25cl.jpg" class="card-img-top" alt="">
-        <div class="card-body">
+        <%= cl_image_tag beer.photo.key, width: 400, height: 400, class: " bg-white p-5 card-img-top object-fit-contain"%>
+        <div class="card-body bg-white">
           <h5 class="card-title"> <%= beer.name %> </h5>
           <p class="card-title"> <em><%= beer.centiliter %>cl</em></p>
             <div class="d-flex justify-content-between align-items-center">
             <p class="card-title mb-0"><b><%= beer.unit_price %> €</b></p>
-            <%= link_to "See more", beer_path(beer), class: "btn btn-outline-success" %>
+            <%= link_to "See more", beer_path(beer), class: "btn btn-outline-primary" %>
             </div>
         </div>
       </div>
