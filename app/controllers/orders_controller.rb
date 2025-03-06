@@ -14,7 +14,9 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to order_path(@order)
     else
-      render :new, status: :unprocessable_entity
+      @beer = @order.beer
+      flash.now[:alert] = "Erreur lors de la création de la commande."
+      render "beers/show", status: :unprocessable_entity
     end
   end
 
