@@ -2,8 +2,8 @@
 
   <div class="d-flex gap-3">
 
-    <div class="d-flex flex-column gap-5 p-5 bg-white rounded-5">
-      <div class="d-flex">
+    <div class="d-flex flex-column gap-5 p-8 bg-white rounded-5 justify-content-center col-3">
+      <div class="d-flex justify-content-center">
         <img class="object-fit-cover rounded-circle" src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" width="250" height="250">
       </div>
 
@@ -11,7 +11,7 @@
         <h1 class="mb-2"><strong><%= @user.first_name %> <%= @user.last_name %></strong></h1>
         <p class="mb-2"><strong>Email:</strong> <%= @user.email %></p>
         <p class="mb-2"><strong>Birth date:</strong> <%= @user.birth_date %></p>
-        <%= link_to "Add a new beer", new_beer_path, class:"btn btn-outline-primary mt-4 p-3 px-5 rounded-3" %>
+        <%= link_to "Add a new beer", new_beer_path, class:"btn btn-primary mt-4 p-3 px-5 rounded-3" %>
       </div>
     </div>
 
@@ -22,19 +22,22 @@
         <% @user.beers.each do |beer| %>
         <div class="col">
 
-          <div class="card p-2 bg-white rounded-4">
-            <p class="card-title text-secondary fs-4 color-secondary p-3 position-absolute top-0"><%= beer.centiliter %>cl</p>
-            <%= cl_image_tag beer.photo.key, width: 300, class: "img-fluid w-100 bg-white card-img-top object-fit-cover"%>
-            <div class="card-body bg-white d-flex flex-column gap-3">
-              <p class="card-title fs-3 mb-0"><%= beer.unit_price %> €</p>
-              <h5 class="card-title fs-5 mb-0 fw-medium text-uppercase"><%= beer.name %></h5>
-              <div class="d-flex flex-row gap-3">
-                <%= link_to "Update", beer_path(beer), class: "btn btn-outline-primary w-100 mt-3 p-3 px-5 rounded-3" %>
-                <%= link_to "Delete", beer_path(beer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger w-100 mt-3 p-3 px-5 rounded-3" %>
-              </div>
-            </div>
+          <div class="card p-3 bg-white rounded-4">
+          <p class="badge text-bg-light card-title text-secondary fs-6 p-3 position-absolute top-5"><%= beer.centiliter %>cl</p>
+
+          <div class="d-flex align-items-center" style="height: 250px;">
+            <%= cl_image_tag beer.photo.key, class: "w-100 h-100 bg-white p-3 card-img-top object-fit-contain"%>
           </div>
 
+          <div class="card-body bg-white d-flex flex-column gap-3">
+            <p class="card-title fs-3 mb-0"><%= beer.unit_price %> €</p>
+            <h5 class="card-title fs-5 mb-0 fw-medium text-uppercase"><%= beer.name %></h5>
+            <div class="d-flex flex-row gap-3">
+              <%= link_to "Update", edit_beer_path(beer), class: "btn btn-outline-primary w-100 mt-3 p-3 px-5 rounded-3" %>
+              <%= link_to "Delete", beer_path(beer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger w-100 mt-3 p-3 px-5 rounded-3" %>
+            </div>
+          </div>
+        </div>
 
         </div>
         <% end %>
