@@ -36,6 +36,38 @@
   padding: 16px;
 }
 
+.close-button {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+
+.sticky-profil {
+  position: sticky;
+  top: 36px;
+}
+
+.banner-image {
+  object-position: bottom;
+}
+
+.hovereffect img{
+  z-index: 0;
+  display: block;
+  position: relative;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+}
+
+.hovereffect:hover img{
+  transform: scale(1.1);
+}
+
+.margin-top {
+  margin-top: $n-margin-top;
+}
+
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
