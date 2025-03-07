@@ -8,3 +8,8 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+.focus-outline-primary:focus {
+  outline: 0.5px solid primary;
+  box-shadow: none;
+}

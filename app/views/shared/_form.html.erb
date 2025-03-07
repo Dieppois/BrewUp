@@ -1,38 +1,50 @@
-<%= render "shared/back" %>
-<%= simple_form_for @beer do |f| %>
-  <div class="input">
-    <%= f.input :name, input_html: { class: "form-control-lg" } %>
-  </div>
+<div class="container mb-5 bg-white rounded-3 p-5">
 
-  <div class="input">
-    <%= f.input :degree, collection: 4..20, input_html: { class: "form-control-lg" } %>
-  </div>
-
-  <div class="input d-flex gap-3 w-100">
-    <div class="flex-grow-1">
-      <%= f.input :centiliter, as: :select, collection: Beer::CENTILITER, input_html: { class: "form-control-lg" } %>
+  <%= simple_form_for @beer do |f| %>
+    <div class="input">
+      <%= f.input :name, input_html: { class: "form-control-lg bg-white focus-outline-primary" } %>
     </div>
 
-    <div class="flex-grow-1">
-      <%= f.input :conditionnement, as: :select, collection: Beer::CONDITIONNEMENTS, input_html: { class: "form-control-lg" } %>
+    <div class="input">
+      <%= f.input :beer_type, as: :select, collection: Beer::BEER_TYPES, input_html: { class: "form-control-lg bg-white focus-outline-primary" } %>
     </div>
 
-    <div class="flex-grow-1">
-      <%= f.input :beer_type, as: :select, collection: Beer::BEER_TYPES, input_html: { class: "form-control-lg" } %>
+    <div class="mb-3">
+      <label for="beer_degree" class="form-label">
+        <span id="degree_value"><%= @beer.degree || 4 %></span> Degrees
+      </label>
+      <%= f.input_field :degree, as: :range, min: 4, max: 20, step: 1, class: "form-range", id: "beer_degree", oninput: "document.getElementById('degree_value').innerText = this.value" %>
     </div>
-  </div>
 
-  <div class="input">
-    <%= f.input :unit_price, input_html: { class: "form-control-lg" } %>
-  </div>
+    <div class="input d-flex gap-3 w-100 py-5">
+      <div class="input flex-grow-1 d-flex gap-5">
+        <%= f.input :centiliter, as: :radio_buttons, collection: Beer::CENTILITER,
+            item_wrapper_class: "form-check form-check-inline",
+            label_class: "form-check-label",
+            input_html: { class: "form-check-input focus-outline-primary" } %>
+      </div>
 
-  <div class="input">
-    <%= f.input :photo, as: :file, input_html: { class: "form-control-lg" } %>
-  </div>
+      <div class="input flex-grow d-flex gap-5">
+        <%= f.input :conditionnement, as: :radio_buttons, collection: Beer::CONDITIONNEMENTS,
+            item_wrapper_class: "form-check form-check-inline",
+            label_class: "form-check-label",
+            input_html: { class: "form-check-input focus-outline-primary" } %>
+      </div>
+    </div>
 
-  <div class="input">
-    <%= f.input :description, as: :text, input_html: { class: "form-control-lg" } %>
-  </div>
+    <div class="input">
+      <%= f.input :unit_price, input_html: { class: "form-control-lg bg-white focus-outline-primary" } %>
+    </div>
 
-  <%= f.button :submit, class: "w-100 btn btn-primary btn-lg" %>
-<% end %>
+    <div class="input">
+      <%= f.input :photo, as: :file, input_html: { class: "form-control-lg fs-6 bg-white focus-outline-primary" } %>
+    </div>
+
+    <div class="input">
+      <%= f.input :description, as: :text, input_html: { class: "form-control-lg bg-white focus-outline-primary" } %>
+    </div>
+
+    <%= f.button :submit, class: "w-100 btn btn-primary btn-lg" %>
+  <% end %>
+
+</div>

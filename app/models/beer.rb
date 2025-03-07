@@ -1,6 +1,8 @@
 class Beer < ApplicationRecord
-  BEER_TYPES = %w[Lager Pale IPA Stout Porter Pilsner Wheat Beer Amber Ale Tripel].freeze
-  CONDITIONNEMENTS = %w[Bottle Can Drum].freeze
+
+  BEER_TYPES = %w[Ale IPA Amber Tripel].freeze
+  CONDITIONNEMENTS = %w[Bouteille Canette Fût].freeze
+
   CENTILITER = [25, 33, 50, 75].freeze
 
   has_one_attached :photo

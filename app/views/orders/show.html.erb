@@ -1,11 +1,11 @@
-<div class="container">
-  <h1>Recapitulatif de la commande:</h1>
+<div class="container align-content-strech">
+  <h1>Order summary :</h1>
 
-
+<%# -- order summary -- %>
   <div class="d-flex gap-5">
     <div class="card mb-3">
       <div class="row g-0">
-        <div class="col-md-4">
+        <div class="col-md-4 m-0 p-0">
           <% if @order.beer.photo.attached? %>
                 <%= cl_image_tag @order.beer.photo.key, alt: @order.beer.name, class: "img-fluid rounded-start" %>
               <% else %>
@@ -14,29 +14,34 @@
         </div>
         <div class="col-md-8 flex-grow-1">
           <div class="card-body">
-            <h5 class="card-title"><strong>Nom:</strong> <%= @order.beer.name %></h5>
-              <p><strong>Type de bière:</strong> <%= @order.beer.beer_type %></p>
-              <p><strong>Conditionnement:</strong> <%= @order.beer.conditionnement %></p>
+            <h5 class="card-title"><strong>Name :</strong> <%= @order.beer.name %></h5>
+              <p><strong>Beer's type:</strong> <%= @order.beer.beer_type %></p>
+              <p><strong>Packaging :</strong> <%= @order.beer.conditionnement %></p>
               <p><strong>CL:</strong> <%= @order.beer.centiliter %></p>
-              <p><strong>Prix:</strong> <%= @order.beer.unit_price %>€</p>
+              <p><strong>Price :</strong> <%= @order.beer.unit_price %>€</p>
               <p><strong>Description:</strong> <%= @order.beer.description %></p>
           </div>
         </div>
       </div>
     </div>
-        <div class="col-6 col-md-4 p-4 border position-relative">
-          <h3>Total de la commande:</h3>
-          <ul class="list-group list-group-horizontal">
-            <li class="list-group-item"><%= @order.beer.name %></li>
-            <li class="list-group-item">x<%= @order.quantity %></li>
-            <li class="list-group-item">= <%= @order.beer.unit_price * @order.quantity %>€ </li>
-          </ul>
-          <div class="bottom-right position-absolute bottom-0 end-0 p-2">
-          <p><strong>Montant total:</strong> <%= number_to_currency(@order.beer.unit_price * @order.quantity) %></p>
-          </div>
-        </div>
-  </div>
 
+<%# -- order total -- %>
+    <div class="d-flex col-6 col-md-4 mb-0">
+      <div class="card mb-4 rounded-3 shadow-sm border-danger position relative">
+        <div class="card-header py-3 border-danger price-amount">
+          <h4 class="my-0 fw-normal">Total amount :</h4>
+          <h1 class="card-title pricing-card-title"><%= @order.beer.unit_price * @order.quantity %>€</h1>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-horizontal">
+            <li class="list-group-item border border-0 fs-4"><%= @order.beer.name %></li>
+            <li class="list-group-item border border-0 fw-bold fs-3">x<%= @order.quantity %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 
 <%= render "shared/back" %>

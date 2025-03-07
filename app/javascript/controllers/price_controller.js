@@ -5,15 +5,13 @@ export default class extends Controller {
   static values = { unitPrice: { type: Number, default: 0 } };
 
   connect() {
-    const unitPrice = this.element.dataset.unitPriceValue; // Récupère la valeur depuis le DOM
-    this.unitPriceValue = parseFloat(unitPrice); // Convertit en nombre
-    this.update();
+    const unitPrice = this.element.dataset.unitPriceValue;
+    this.unitPriceValue = parseFloat(unitPrice);
   }
 
   update(event) {
     const quantity =  event?.detail?.quantity || this.quantityTarget.value || 1;
     const totalPrice = (this.unitPriceValue * quantity);
-    console.log(totalPrice);
     this.buttonTarget.value = `Buy (${totalPrice}€)`;
   }
 }
