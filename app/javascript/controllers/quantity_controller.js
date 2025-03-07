@@ -3,23 +3,36 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="quantity"
 export default class extends Controller {
-  static targets = ["quantity"];
+  static targets = ["quantity", "button"];
+  static values = { unitPrice: { type: Number, default: 1 } };
+
+  connect() {
+    const unitPrice = this.element.dataset.unitPriceValue;
+    this.unitPriceValue = parseFloat(unitPrice);
+    console.log(unitPrice);
+  }
 
   increment() {
-    this.quantityTarget.value = Number(this.quantityTarget.value) + 1;
-    this.updateHiddenQuantity();
-  }
+    let currentValue = parseInt(this.quantityTarget.value, 10) || 0;
+    this.quantityTarget.value = currentValue + 1;
+    console.log(this.quantityTarget.value);
+    this.update();
 
+  }
   decrement() {
-    if (this.quantityTarget.value > 1) {
-      this.quantityTarget.value = Number(this.quantityTarget.value) - 1;
-      this.updateHiddenQuantity();
+    let currentValue = parseInt(this.quantityTarget.value, 10) || 0;
+    if (currentValue > 1) { // Prevent going below 1
+      this.quantityTarget.value = currentValue - 1;
+      console.log(this.quantityTarget.value);
+      this.update();
     }
   }
+  update() {
+    const quantity = this.quantityTarget.value || 1;
+    const unitPrice = this.element.dataset.unitPriceValue;
+    const totalPrice = (unitPrice * quantity);
+    console.log(totalPrice);
 
-  // addToCart() {
-  //   const quantity = this.quantityTarget.value;
-  //   alert(`Ajouté au panier : ${quantity} x ${this.element.dataset.name}`);
-  // }
+    this.buttonTarget.value = `Buy (${totalPrice}€)`;
   }
-
+}

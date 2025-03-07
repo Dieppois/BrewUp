@@ -1,4 +1,3 @@
-
 <div class="container-fluid vh-100 bg-white">
   <div class="h-75 w-75 d-flex flex-row bg-white container-fluid vh-100 d-flex justify-content-center align-items-center">
     <!-- Image à gauche -->
@@ -12,16 +11,54 @@
         <%= render "shared/back" %>
         <h1 class="card-title"><strong><%= @beer.name %></strong></h1>
         <p class="card-text text-muted fs-3">Unit Price : <%= @beer.unit_price %>€</p>
-        <h4 class="card-text">Type de bière : <%= @beer.beer_type %></h4>
-        <h5 class="card-text">Conditionnement : <%= @beer.conditionnement %></h5>
+        <h4 class="card-text">Beer's type : <%= @beer.beer_type %></h4>
+        <h5 class="card-text">Packaging : <%= @beer.conditionnement %></h5>
         <h5 class="card-text"><%= @beer.centiliter %> cl</h5>
         <p class="card-text"><strong>Description</strong> : <%= @beer.description %></p>
 
+        <%#####= simple_form_for @order, html: { data: { controller: "price", "unit-price-value": @beer.unit_price } } do |f| %>
+          <%####= f.input :quantity, input_html: {
+                data: { target: "price.quantity", action: "input->price#update" }
+              } %>
+          <%###= f.hidden_field :beer_id, value: @beer.id %>
+          <%##= f.button :submit,
+              value: "Acheter pour #{@beer.unit_price}€",
+              class: "btn btn-danger btn-lg text-white custom-btn",
+              data: { target: "price.button" } %>
+        <%# end %>
 
-        <%= simple_form_for @order do |f| %>
-          <%= f.input :quantity %>
+
+<%= simple_form_for @order, html: { data: { controller: "quantity", "unit-price-value": @beer.unit_price } } do |f| %>
+          <div class="d-flex align-items-center">
+
+            <button class="btn btn-white btn-lg text-dark custom-btn"
+                    type="button"
+                    data-action="click->quantity#decrement">
+              -
+            </button>
+
+            <%= f.input :quantity,
+                input_html: {
+                  data: { target: "price.quantity", action: "input->quantity#update" },
+                  class: 'form-control text-center bg-white mx-2 desactivation',
+                  style: 'width: 100px;',
+                  'data-quantity-target': 'quantity',
+                  value: 1, min: 1
+                }
+            %>
+
+            <button class="btn btn-white btn-lg text-dark custom-btn"
+                    type="button"
+                    data-action="click->quantity#increment">
+              +
+            </button>
+
+          </div>
           <%= f.hidden_field :beer_id, value: @beer.id %>
-          <%= f.button :submit, class:"btn btn-danger btn-lg text-white custom-btn" %>
+          <%= f.button :submit,
+              value: "Buy (#{@beer.unit_price})€",
+              class: "btn btn-danger btn-lg text-white custom-btn",
+              data: { target: "quantity.button" } %>
         <% end %>
 
         <!-- Bouton Ajouter au panier -->
