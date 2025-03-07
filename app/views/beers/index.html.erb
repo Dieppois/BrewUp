@@ -4,11 +4,11 @@
     <div class="col-sm-8 my-3">
       <%= form_with url: beers_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Search a specific beer ? 🍻"
+          params[:query],
+          class: "form-control",
+          placeholder: "Search a specific beer ? 🍻"
           %>
-        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+        <%= submit_tag "Cheers! 🍺", name: "", class: "btn btn-danger me-3" %>
       <% end %>
     </div>
   </div>
