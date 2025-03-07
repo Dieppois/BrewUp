@@ -3,3 +3,7 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
+
+import { application } from "./controllers/application"
+import QuantityController from "./controllers/quantity_controller"
+application.register("quantity", QuantityController)

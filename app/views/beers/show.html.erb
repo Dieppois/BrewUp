@@ -16,12 +16,22 @@
         <h5 class="card-text"><%= @beer.centiliter %> cl</h5>
         <p class="card-text"><strong>Description</strong> : <%= @beer.description %></p>
 
-
-        <%= simple_form_for @order do |f| %>
-          <%= f.input :quantity %>
+        <%= simple_form_for @order, html: { data: { controller: "price", "unit-price-value": @beer.unit_price } } do |f| %>
+          <%= f.input :quantity, input_html: {
+                data: { target: "price.quantity", action: "input->price#update" }
+              } %>
           <%= f.hidden_field :beer_id, value: @beer.id %>
-          <%= f.button :submit, class:"btn btn-danger btn-lg text-white custom-btn" %>
+          <%= f.button :submit,
+              value: "Acheter pour #{@beer.unit_price}€",
+              class: "btn btn-danger btn-lg text-white custom-btn",
+              data: { target: "price.button" } %>
         <% end %>
+
+
+
+
+
+
 
         <!-- Bouton Ajouter au panier -->
         <%# <%= link_to "ajoutez au panier", new_beer_order_path(@beer),  class:"btn btn-danger btn-lg text-white custom-btn" %>
