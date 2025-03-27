@@ -12,11 +12,17 @@
         Beers
       </a>
     </li>
-    <li class="list-unstyled">
-      <a class="nav-link text-decoration-none body-color" href="">
-        Login
-      </a>
-    </li>
+    <% if user_signed_in? %>
+      <li class="list-unstyled">
+        <a class="nav-link text-decoration-none body-color" href="">
+            <%= link_to "+ Add 🍺", new_beer_path, class:"nav-link px-2 text-white" %>
+            <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+          <% else %>
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </a>
+      </li>
+    <% end %>
   </ul>
 
 </header>

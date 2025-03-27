@@ -5,7 +5,7 @@
     <h1 class="bebas xxl text-center">TASTE.<br>MEET. ENJOY</h1>
   </div>
 
-  <div class="container-fluid px-2">
+  <div class="container-fluid px-2 bg-primary">
 
     <div class="row">
       <div class="container title w-100 text-center">
@@ -26,7 +26,7 @@
       <div class="col-12 col-md-4 col-lg-4 d-flex flex-column justify-content-between my-5 align-items-end">
         <div class="d-flex flex-column gap-3">
           <p>BREWUP is a team that built an entire project around the idea of ​​becoming something more than just a brewery. We also organize annual festivals and conduct educational projects in Ukrainian institutions and bartending schools, telling about the history in the beer museum of our city.</p>
-          <%= link_to "See more", beers_path, class:"btn cus-out-btn-primary py-1 w-100" %>
+          <%= link_to "See more", beers_path, class:"btn cus-out-btn-primary py-2 w-100 rounded-4" %>
         </div>
 
         <%= image_tag "beer-houblon.avif", style: "width: 70%; height: auto", class:"cover" %>
@@ -35,7 +35,7 @@
 
   </div>
 
-  <div class="container-fluid justify-content-center align-items-center d-flex flex-column bg-principal py-5">
+  <div class="container-fluid justify-content-center align-items-center d-flex flex-column py-5">
     <h2 class="bebas display text-center primary-color">ALL BEERS</h2>
     <div class="w-100 pb-5">
       <%= form_with url: beers_path, method: :get, class: "d-flex container w-50 mt-3" do %>
@@ -51,7 +51,7 @@
       <% @beers.each do |beer| %>
       <div class="col-12 col-md-4 col-lg-4 flex-grow-1">
 
-        <div class="w-100 bg-principal">
+        <div class="w-100">
           <p class="position-absolute top-5 left-5"><em><%= beer.centiliter %>cl</em></p>
           <div class="bg-principal blend overflow-hidden position-relative rounded-4">
             <%= link_to beer_path(beer) do %>

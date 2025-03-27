@@ -1,9 +1,17 @@
+body {
+	background-color: #faf7f0;
+}
+
 p {
 	margin-bottom: 0;
 }
 
 .bg-principal {
 	background-color: #f7f6f3;
+}
+
+.bg-primary {
+	background-color: $primary;
 }
 
 .primary {
