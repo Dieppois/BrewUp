@@ -1,0 +1,117 @@
+p {
+	margin-bottom: 0;
+}
+
+.bg-principal {
+	background-color: #f7f6f3;
+}
+
+.primary {
+	color: $primary;
+}
+
+.blend {
+	mix-blend-mode: multiply;
+}
+
+.cover {
+	object-fit: cover;
+}
+
+.contain {
+	object-fit: contain;
+}
+
+.hover-scale {
+	transition: transform 0.5s ease-in-out;
+
+	&:hover {
+		transform: scale(1.15) rotate(15deg);
+	}
+}
+
+.primary-color {
+	color: rgba(36, 89, 73, 1);
+}
+
+.hero-background {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: bottom;
+	height: 100vh;
+
+	.form-control {
+		background-color: transparent !important;
+
+		&::placeholder {
+			color: $primary;
+		}
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 0px rgba(36, 89, 73, 0);
+		}
+
+		&:not(:placeholder-shown) {
+			background-color: rgba(36, 89, 73, 1);
+			color: $primary;
+		}
+	}
+}
+
+.animate {
+	transform: translateY(0);
+	transition: transform 0.3s ease;
+
+	&:hover {
+		transform: translateY(100px);
+	}
+}
+
+.cus-out-btn-primary {
+	color: #fff;
+	background-color: $primary;
+	border-color: rgba(36, 89, 73, 1);
+}
+
+.cus-out-btn-primary:hover {
+	color: #fff;
+	background-color: rgba(36, 89, 73, 1);
+	border-color: rgba(36, 89, 73, 1);
+}
+
+.cus-out-btn-primary:focus,
+.cus-out-btn-primary.focus {
+	box-shadow: 0 0 0 0.2rem rgba(36, 89, 73, 1);
+}
+
+.cus-out-btn-primary:disabled,
+.cus-out-btn-primary.disabled {
+	color: #6c757d;
+	background-color: $primary;
+	border-color: $primary;
+}
+
+.cus-btn-primary {
+	color: #fff;
+	background-color: $primary;
+	border-color: $primary;
+}
+
+.cus-btn-primary:hover {
+	color: #fff;
+	background-color: rgba(36, 89, 73, 1);
+	border-color: rgba(36, 89, 73, 1);
+}
+
+.cus-btn-primary:focus,
+.cus-btn-primary.focus {
+	box-shadow: 0 0 0 0.2rem rgba(36, 89, 73, 1);
+}
+
+.cus-btn-primary:disabled,
+.cus-btn-primary.disabled {
+	color: #6c757d;
+	background-color: $primary;
+	border-color: $primary;
+}
