@@ -1,11 +1,27 @@
-<div  class="hero-background"
+<section  class="hero-background"
       style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(22, 50, 44, 1)),
       url('<%= image_path "hero.jpg", height: 200, width: 200, crop: "fit" %>')">
   <div class="h-100 justify-content-center d-flex flex-column">
     <h1 class="bebas xxl text-center">TASTE.<br>MEET. ENJOY</h1>
   </div>
 
-  <div class="container-fluid px-2 bg-primary">
+  <div class="container-fluid neg-marg mb-5">
+    <div class="container d-flex gap-2 justify-content-center">
+
+      <div class="bg-primary-dark p-3 rounded-4">
+        <h3 class="bebas l text-uppercase white">BREWUP</h3>
+        <p class="white w-70 pt-5">Our goal is to find a common language between people with the help of beer.</p>
+      </div>
+
+      <div class="bg-primary-dark p-3 rounded-4">
+        <h3 class="bebas l text-uppercase white">BEER SHOP</h3>
+        <p class="white w-70 pt-5">There are no such situations where you cannot find common communications. You just need to choose the right type of beer for conversation.</p>
+      </div>
+      
+    </div>
+  </div>
+
+  <section class="container-fluid px-2 bg-primary pt-5">
 
     <div class="row">
       <div class="container title w-100 text-center">
@@ -33,9 +49,9 @@
       </div>
     </div>
 
-  </div>
+  </section>
 
-  <div class="container-fluid justify-content-center align-items-center d-flex flex-column py-5">
+  <section class="container-fluid justify-content-center align-items-center d-flex flex-column py-5 bg-principal">
     <h2 class="bebas display text-center primary-color">ALL BEERS</h2>
     <div class="w-100 pb-5">
       <%= form_with url: beers_path, method: :get, class: "d-flex container w-50 mt-3" do %>
@@ -75,5 +91,5 @@
       </div>
       <% end %>
     </div>
-  </div>
-</div>
+  </section>
+</section>

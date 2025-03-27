@@ -1,17 +1,31 @@
 body {
-	background-color: #faf7f0;
+	background-color: $primary;
 }
 
 p {
 	margin-bottom: 0;
 }
+.white {
+	color: #faf7f0;
+}
+.w-70 {
+	width: 70%;
+}
 
 .bg-principal {
-	background-color: #f7f6f3;
+	background-color: #faf7f0;
 }
 
 .bg-primary {
 	background-color: $primary;
+}
+
+.bg-primary-dark {
+	background-color: #0f1d18;
+}
+
+.neg-marg {
+	margin-top: -100px;
 }
 
 .primary {
@@ -77,13 +91,13 @@ p {
 }
 
 .cus-out-btn-primary {
-	color: #fff;
+	color: #faf7f0;
 	background-color: $primary;
 	border-color: rgba(36, 89, 73, 1);
 }
 
 .cus-out-btn-primary:hover {
-	color: #fff;
+	color: #faf7f0;
 	background-color: rgba(36, 89, 73, 1);
 	border-color: rgba(36, 89, 73, 1);
 }
@@ -101,13 +115,13 @@ p {
 }
 
 .cus-btn-primary {
-	color: #fff;
+	color: #faf7f0;
 	background-color: $primary;
 	border-color: $primary;
 }
 
 .cus-btn-primary:hover {
-	color: #fff;
+	color: #faf7f0;
 	background-color: rgba(36, 89, 73, 1);
 	border-color: rgba(36, 89, 73, 1);
 }
