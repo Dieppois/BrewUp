@@ -137,3 +137,38 @@ p {
 	background-color: $primary;
 	border-color: $primary;
 }
+
+.cus-btn-primary-light {
+	color: #faf7f0;
+	background-color: rgba(36, 89, 73, 1);
+	border-color: rgba(36, 89, 73, 1);
+}
+
+.cus-btn-primary-light:hover {
+	color: $primary;
+	background-color: #faf7f0;
+	border-color: #faf7f0;
+}
+
+.cus-btn-primary-light:focus,
+.cus-btn-primary-light.focus {
+	box-shadow: 0 0 0 0.2rem #faf7f0;
+}
+
+.cus-btn-primary-light:disabled,
+.cus-btn-primary-light.disabled {
+	color: #6c757d;
+	background-color: rgba(36, 89, 73, 1);
+	border-color: rgba(36, 89, 73, 1);
+}
+
+.card-nav {
+	z-index: 0;
+	transform: translateX(0);
+	transition: transform 0.5s ease-in-out;
+
+	&:hover .arrow {
+		transition: transform 0.5s ease-in-out;
+		transform: translateX(10px);
+	}
+}

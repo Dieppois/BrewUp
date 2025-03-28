@@ -1,5 +1,5 @@
-<header class="d-flex justify-content-between py-2 position-fixed bg-none w-100 px-2">
-  <h3 class="bebas text-uppercase fw-bold body-color">BrewUp</h3>
+<header class="d-flex justify-content-between py-2 position-fixed bg-none w-100 px-2 z-index-3">
+  <h3><%= link_to "BrewUp", root_path, class:"bebas text-uppercase fw-bold body-color nav-link text-decoration-none body-color" %></h3>
 
   <ul class="d-flex gap-2">
     <li class="list-unstyled">
@@ -8,19 +8,16 @@
       </a>
     </li>
     <li class="list-unstyled">
-      <a class="nav-link text-decoration-none body-color" href="">
-        Beers
-      </a>
+      <%= link_to 'Beers', '#targetSection', { class: "nav-link text-decoration-none body-color" } %>
     </li>
     <% if user_signed_in? %>
-      <li class="list-unstyled">
-        <a class="nav-link text-decoration-none body-color" href="">
-            <%= link_to "+ Add 🍺", new_beer_path, class:"nav-link px-2 text-white" %>
-            <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-          <% else %>
-              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </a>
+      <li class="list-unstyled d-flex gap-2">
+        <%= link_to "Add a beer", new_beer_path, class:"nav-link text-decoration-none body-color" %>
+        <%= link_to "Profile", user_path(current_user), class:"nav-link text-decoration-none body-color" %>
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class:"nav-link text-decoration-none body-color" %>
+      <% else %>
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link text-decoration-none body-color' %>
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
       </li>
     <% end %>
   </ul>
