@@ -8,7 +8,7 @@
   <div class="container-fluid neg-marg mb-5">
     <div class="container d-flex gap-2 justify-content-center">
 
-      <div class="card-nav bg-primary-dark p-3 rounded-4 w-50">
+      <div class="card-nav bg-primary-dark p-3 rounded-4 w-50 d-flex flex-column justify-content-between">
         <h3 class="bebas l text-uppercase text-white">BREWUP</h3>
         <div class="d-flex justify-content-between align-items-end white">
           <p class="text-white w-70 pt-5">Our goal is to find a common language between people with the help of beer.</p>
@@ -16,7 +16,7 @@
         </div>
       </div>
 
-      <%= link_to '#targetSection', { class: "text-decoration-none card-nav bg-primary-dark p-3 rounded-4 w-50" } do %>
+      <%= link_to '#targetSection', { class: "text-decoration-none h-auto card-nav bg-primary-dark p-3 rounded-4 w-50" } do %>
         <h3 class="bebas l text-uppercase white">BEER SHOP</h3>
         <div class="d-flex justify-content-between align-items-end white">
           <p class="white w-70 pt-5">There are no such situations where you cannot find common communications. You just need to choose the right type of beer for conversation.</p>
@@ -78,17 +78,15 @@
           <div class="bg-principal blend overflow-hidden position-relative rounded-4">
             <%= link_to beer_path(beer) do %>
               <%= image_tag "product-1.png", style: "width: 100%; height: 500px;", class: "img-fluid blend hover-scale contain p-4" %>
-              <%#= cl_image_tag beer.photo.key, style: "width: 100%; height: 500px;", class: "img-fluid blend hover-scale cover" %>
             <% end %>
           </div>
           <div class="mt-2 primary-color">
-            <h5 class="s mb-0">
+            <h5 class="s mb-0 bebas text-uppercase">
               <%= beer.name %>
             </h5>
             <div>
               <p class="s">
-                <b><%= beer.unit_price %> €</b>
-                <%#= link_to "See more", beer_path(beer), class:"btn btn-primary animate w-100 py-1" %>
+                <%= beer.unit_price %> €
               </p>
             </div>
           </div>

@@ -1,3 +1,11 @@
+header {
+	transition: background-color 0.5s ease-in-out;
+}
+
+header.scrolled {
+	background: $primary;
+}
+
 .nav-link {
 	z-index: 99;
 	color: $body-color;
