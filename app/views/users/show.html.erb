@@ -23,14 +23,14 @@
           <div class="mt-2 primary-color">
             <h5 class="s mb-0 bebas text-uppercase"><%= beer.name %></h5>
             <p class="s"><%= beer.unit_price %> €</p>
-            <div class="d-flex flex-column gap-1 top-left">
+            <div class="d-flex gap-1 top-left">
               <%= link_to edit_beer_path(beer), class: "index-9 icon-circle" do %>
                 <i class="fa-solid fa-pen white"></i>
               <% end %>
 
               <%= link_to beer_path(beer),
                           data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                          class: "index-9 icon-circle" do %>
+                          class: "index-9 icon-circle orange" do %>
                 <i class="fa-solid fa-trash white"></i>
               <% end %>
             </div>
