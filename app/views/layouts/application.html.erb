@@ -8,11 +8,20 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
   </head>
 
   <body>
-    <%= render "shared/navbar", class:"index-9" %>
+    <%#= debug controller_name %>
+    <%#= debug action_name %>
+    <%#= debug request.path %>
+
+    <% if request.path.start_with?("/users") %>
+      <%= render "shared/dark_navbar", class: "index-9" %>
+    <% else %>
+      <%= render "shared/navbar", class: "index-9" %>
+    <% end %>
+
+    <%#= render "shared/navbar", class:"index-9" %>
     <%= render "shared/flashes" %>
 
     <%= yield %>

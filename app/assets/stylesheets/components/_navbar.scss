@@ -27,3 +27,24 @@ header.scrolled {
 		width: 100%;
 	}
 }
+.dark-nav-link {
+	z-index: 99;
+	color: $primary;
+	position: relative;
+	padding-bottom: 4px;
+
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background-color: $primary;
+		transition: width 0.3s ease-in-out;
+	}
+
+	&:hover::after {
+		width: 100%;
+	}
+}

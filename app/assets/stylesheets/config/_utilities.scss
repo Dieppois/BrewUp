@@ -19,7 +19,7 @@
 }
 
 .primary {
-	color: primary;
+	color: $primary !important;
 }
 
 .white {
@@ -53,4 +53,12 @@
 
 .primary-color {
 	color: rgba(36, 89, 73, 1);
+}
+
+.span-1 {
+	grid-column: span 1;
+}
+
+.pt-l {
+	padding-top: 10rem;
 }
