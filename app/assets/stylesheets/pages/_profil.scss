@@ -7,6 +7,12 @@
 	min-height: 100vh;
 }
 
+.sticky-top {
+	position: sticky;
+	top: 0;
+	z-index: 80;
+}
+
 .profil-card {
 	.top-left {
 		position: absolute;
@@ -22,7 +28,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			z-index: 99;
+			z-index: 50 !important;
 			opacity: 0;
 			transition: background-color 0.3s, border-color 0.3s, color 0.5s ease-in-out;
 

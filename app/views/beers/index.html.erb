@@ -73,7 +73,7 @@
       <% @beers.each do |beer| %>
       <div class="col-12 col-md-4 col-lg-4 flex-grow-1">
 
-        <div class="w-100">
+        <div class="w-100 mb-2">
           <p class="position-absolute top-5 left-5"><em><%= beer.centiliter %>cl</em></p>
           <div class="bg-principal blend overflow-hidden position-relative rounded-4">
             <%= link_to beer_path(beer) do %>
@@ -90,8 +90,8 @@
               </p>
             </div>
           </div>
-
         </div>
+
       </div>
       <% end %>
     </div>

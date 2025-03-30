@@ -1,6 +1,6 @@
-<div class="d-flex container-fluid align-items-center bg-principal pb-5 pt-l min-100vh">
-  <div class="container gap-5">
-    <div class="gap-2">
+<div class="d-flex flex-column align-items-center bg-principal min-100vh pb-5">
+  <div class="container-fluid bg-principal gap-5 sticky-top pb-2 pt-l z-index-0">
+    <div class="container gap-2">
       <h1 class="d-flex primary bebas text-uppercase align-items-baseline">
         My show room
         <span class="px-1 s">
@@ -8,34 +8,35 @@
         </span>
         <%= link_to "Add a new beer", new_beer_path, class:"btn cus-btn-primary rounded-4 py-1 px-2 s mx-2" %>
       </h1>
+    </div>
+  </div>
+  <div class="container">
+    <div class="beer-grid gap-2 mt-3 position-relative">
+      <% @user.beers.each do |beer| %>
+        <div class="profil-card position-relative">
+          <div class="bg-principal blend overflow-hidden rounded-4">
+            <%= cl_image_tag beer.photo.key,  style: "width: 100%; height: 500px;",
+                                              class: "img-fluid hover-scale contain p-4"
+                                              %>
+          </div>
 
-      <div class="beer-grid gap-2 mt-3 position-relative">
-        <% @user.beers.each do |beer| %>
-          <div class="profil-card position-relative">
-            <div class="bg-principal blend overflow-hidden rounded-4">
-              <%= cl_image_tag beer.photo.key,  style: "width: 100%; height: 500px;",
-                                                class: "img-fluid hover-scale contain p-4"
-                                                %>
-            </div>
+          <div class="mt-2 primary-color">
+            <h5 class="s mb-0 bebas text-uppercase"><%= beer.name %></h5>
+            <p class="s"><%= beer.unit_price %> €</p>
+            <div class="d-flex flex-column gap-1 top-left">
+              <%= link_to edit_beer_path(beer), class: "index-9 icon-circle" do %>
+                <i class="fa-solid fa-pen white"></i>
+              <% end %>
 
-            <div class="mt-2 primary-color">
-              <h5 class="s mb-0 bebas text-uppercase"><%= beer.name %></h5>
-              <p class="s"><%= beer.unit_price %> €</p>
-              <div class="d-flex flex-column gap-1 top-left">
-                <%= link_to edit_beer_path(beer), class: "index-9 icon-circle" do %>
-                  <i class="fa-solid fa-pen white"></i>
-                <% end %>
-
-                <%= link_to beer_path(beer),
-                            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                            class: "index-9 icon-circle" do %>
-                  <i class="fa-solid fa-trash white"></i>
-                <% end %>
-              </div>
+              <%= link_to beer_path(beer),
+                          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                          class: "index-9 icon-circle" do %>
+                <i class="fa-solid fa-trash white"></i>
+              <% end %>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
