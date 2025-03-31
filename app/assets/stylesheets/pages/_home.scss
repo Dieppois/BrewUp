@@ -50,3 +50,13 @@
 		transform: scale(1.07) rotate(15deg);
 	}
 }
+
+@media (max-width: 768px) {
+	.nav-card {
+		flex-direction: column;
+
+		.card-nav {
+			width: 100% !important;
+		}
+	}
+}
